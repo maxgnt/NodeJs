@@ -277,3 +277,11 @@ graph TD
 - Gestion des erreurs avec try/catch 
 
 
+## NodeJs
+# composants clés 
+V8: moteur Js Chrome
+libuv : bibliothèque C pour I/O asynchrone
+Modules natifs : HTTP, FS, etc
+npm : gestionnaire de paquets
+Event Loop : coeur de l'asynchrone 
+
