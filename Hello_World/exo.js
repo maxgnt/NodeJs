@@ -49,7 +49,9 @@ function transformerChiffreChaine(nombre) {
 
     //Exo 6
 
-
+    function obtenirValeursPropriete(tableau, propriete) {
+        return tableau.map(objet => objet[propriete]);
+    }
 
     //Exo 7
 
@@ -59,6 +61,12 @@ function transformerChiffreChaine(nombre) {
     //Exo 8
 
     function ecrireVoyelleMajuscule(chaine) {
-        return chaine.replace("a", "e", "i", "o", "u", "y") => toUpperCase();
+        return chaine.replace("a", "e", "i", "o", "u", "y") (voyelles)  => toUpperCase();
+
+    }
+
+    //Exo 9
+    function compterVoyelles (chaine) {
+        const Voyelles = ["a", "e", "i", "o", "u", "y"];
 
     }

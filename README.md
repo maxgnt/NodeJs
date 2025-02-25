@@ -181,3 +181,99 @@ console.log(1 === "1"); // false (types différents)
 
 ## Conclusion
 JavaScript est un langage puissant et souple. En maîtrisant ses bases (variables, types, fonctions, tableaux, objets), vous pourrez écrire du code efficace et évolutif, que ce soit en front-end (navigateur) ou en back-end avec **Node.js**.
+
+
+## Desctructuration 
+- Extrait de valeurs de tableaux ou objets
+- simplifie l'accès aux données 
+- affection directe à des variables
+
+Exemple : 
+
+```js 
+const Bob = {
+    name: 'Bob',
+    age: 25,
+    adress: {
+        city: 'Paris',
+        country: 'France'
+    }
+};
+
+const Alice = { ...Bob, name: 'Alice' };
+Alice.adress.city = 'Lyon';
+
+console.log(Bob.adress.city);
+console.log(Alice.adress.city);
+```
+
+## Javascript Asynchrone : Pourquoi ?
+# Javascript est mono-thread
+
+- Un seul fil d'exécution
+- Bloquant par défaut reste bloqué à l'appel 1 tant qu'il n'est pas fini : il ne passera pas à l'appel 2
+- Doit rester réactif
+
+# Opérartions qui prennent du temps 
+- Réquête réseau (API, fichiers)
+- Opérations sur disque 
+- Animations complexes 
+- Traitements lourds
+
+# solutions 
+
+- Callback
+- Promesses
+- Async/await
+- Event loop
+
+# Event loop 
+- stack d'exécution
+- File d'événements 
+- boucle d'événements
+- API Navigateur / NodeJs
+
+```mermaid
+graph TD
+    A[Code JavaScript] --> B[Call Stack]
+    B --> C{Opération<br>synchrone?}
+    C -->|Oui| D[Exécution immédiate]
+    C -->|Non| E[APIs Asynchrones]
+    E --> F[Callback Queue]
+    F --> G[Event Loop]
+    G --> H{Stack<br>vide?}
+    H -->|Oui| I[Exécuter callback]
+    I --> B
+    H -->|Non| G
+
+    style A fill:#42b883
+    style G fill:#35495e
+
+
+```
+## Promesses 
+# Concept 
+- Objet représentant une opération asynchrone
+- Etats : pending, fulfilled, rejected
+- Chainable via .then() et .catch()
+- Composition facilité
+
+# Avantages 
+- Flux linéaire
+- Gestion des erreurs simplififiée
+
+## Async / Await
+# Concept 
+- Sucre syntaxique pour les promesses
+- Syntaxe qui ressemble à du code asynchrone
+- Basé sur les générateurs et promesses
+- Introduit en ES2017 
+
+# Points clés 
+- async déclare une fonction asynchrone 
+- fonction async retourne toujours une promesse 
+- await pause l'exécution de la fonction asynchrone
+- Utilisable uniquement dans une fonction async
+- Gestion des erreurs avec try/catch 
+
+
