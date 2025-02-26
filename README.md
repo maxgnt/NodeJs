@@ -218,3 +218,4 @@ npm : Node Package Manager
 - Méthodes statiques
 - Héritage via extends
 - super pour accéder à la classe parente 
+tyfyftyft
