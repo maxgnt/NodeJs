@@ -203,3 +203,18 @@ npm : Node Package Manager
 - Outil en ligne de commande 
 - Gestion des dépendances 
 - Automatisation de scripts 
+
+## Classes JavaScript
+# Introduction
+- Introduites en ES6
+- Syntaxe plus claire 
+- "Sucre syntaxique" pour les prototypes
+- Centralisent données et comportement 
+
+# Caractéristiques Principales
+- Construteur 
+- Méthodes d'instance 
+- Propriété d'instance 
+- Méthodes statiques
+- Héritage via extends
+- super pour accéder à la classe parente 
