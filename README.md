@@ -1,8 +1,12 @@
-# NodeJs
-# NodeJS & JavaScript
+# Node.js & JavaScript
+
+## Introduction
+Node.js est une plateforme permettant d'exécuter du JavaScript côté serveur. Associé à JavaScript, il permet de développer des applications web rapides et évolutives.
 
 ## Console dans la page Web
 Vous pouvez écrire du JavaScript directement dans la console de votre navigateur (Chrome, Firefox, Edge, etc.) pour tester du code rapidement.
+
+---
 
 ## JavaScript : les fondamentaux
 JavaScript est le langage le plus utilisé au monde. Il est standardisé sous le nom **ECMAScript (ECMA-262)**, qui définit les versions du langage.
@@ -13,7 +17,7 @@ JavaScript est le langage le plus utilisé au monde. Il est standardisé sous le
 
 ---
 
-## Commandes utiles
+## Commandes utiles avec Node.js
 Quelques commandes utiles pour travailler avec Node.js :
 
 ```sh
@@ -43,195 +47,30 @@ let age = 25; // variable modifiable
 const PI = 3.14; // constante, ne peut pas être modifiée
 ```
 
-### Scope et Hoisting
-
-- Le **scope** définit la visibilité d'une variable dans un programme.
-- **Hoisting** :
-  - `var` est **hoistée** (déplacée en haut du programme, mais non initialisée).
-  - `let` et `const` **ne sont pas hoistées**.
-
-```js
-console.log(x); // undefined (hoisting)
-var x = 10;
-
-console.log(y); // Erreur : y n'est pas défini
-let y = 20;
-```
-
-- **Eviter les variables globales** pour réduire les effets de bord.
-
 ---
 
-## Types de données
+## JavaScript Asynchrone
 
-### Types primitifs
-- **Number** : nombres entiers et décimaux
-- **String** : chaînes de caractères
-- **Boolean** : `true` ou `false`
-- **Null** : valeur vide
-- **Undefined** : variable déclarée mais non initialisée
-- **Symbol** : identifiant unique
-- **BigInt** : nombres entiers très grands
+### Pourquoi ?
+JavaScript est **mono-thread** :
+- Un seul fil d'exécution.
+- Bloquant par défaut : tant qu'une tâche n'est pas terminée, elle bloque l'exécution des suivantes.
+- Doit rester réactif pour ne pas figer l'interface utilisateur.
 
-### Types complexes
-- **Object** : collection de paires clé-valeur
-- **Array** : liste ordonnée de valeurs
-- **Function** : bloc de code réutilisable
-- **Date** : gestion des dates et heures
-- **RegExp** : expressions régulières
+### Opérations qui prennent du temps
+- Requêtes réseau (API, fichiers).
+- Opérations sur disque.
+- Animations complexes.
+- Traitements lourds.
 
----
+### Solutions
+- **Callbacks**
+- **Promesses**
+- **Async/Await**
+- **Event Loop**
 
-## Les chaînes de caractères (Strings)
-
-### Caractéristiques
-- Séquence de caractères **Unicode UTF-16**.
-- **Immuables** : les méthodes ne modifient pas la chaîne, elles renvoient une nouvelle chaîne.
-- **Indexées à partir de 0**.
-
-```js
-let texte = "Hello World";
-console.log(texte.length); // 11
-console.log(texte[0]); // H
-```
-
-### Méthodes principales
-
-- **Manipulation** : `slice()`, `substring()`
-- **Transformation** : `toUpperCase()`, `toLowerCase()`, `trim()`, `concat()`, `split()`, `replace()`
-- **Recherche** : `indexOf()`, `lastIndexOf()`, `includes()`, `startsWith()`, `endsWith()`
-- **Découpage** : `split()`, `charAt()`, `charCodeAt()`
-- **Template literals** (interpolation) : 
-  
-```js
-let name = "Maxime";
-console.log(`Bonjour, ${name} !`); // Bonjour, Maxime !
-```
-
-**Bonnes pratiques** :
-- Préférer les **template literals** pour la concaténation de chaînes.
-- Utiliser **trim()** pour nettoyer les espaces en début et fin de chaîne.
-
----
-
-## Les tableaux (Arrays)
-
-### Caractéristiques
-- Collection **ordonnée** de valeurs.
-- Index basé sur **0**.
-- Taille dynamique.
-- Peut contenir **différents types de valeurs**.
-
-```js
-let fruits = ["Pomme", "Banane", "Orange"];
-console.log(fruits[1]); // Banane
-```
-
-### Méthodes principales
-- **Ajout / Suppression** : `push()`, `pop()`, `shift()`, `unshift()`
-- **Transformation** : `map()`, `filter()`, `reduce()`
-- **Parcours** : `forEach()`, `find()`, `some()`, `every()`
-- **Tri / Recherche** : `sort()`, `reverse()`, `indexOf()`, `includes()`
-
-```js
-let numbers = [1, 2, 3, 4, 5];
-let evenNumbers = numbers.filter(num => num % 2 === 0);
-console.log(evenNumbers); // [2, 4]
-```
-
----
-
-## Les fonctions
-
-### Déclaration
-
-```js
-function addition(a, b) {
-  return a + b;
-}
-console.log(addition(5, 3)); // 8
-```
-
-### Fonctions fléchées
-
-```js
-const multiplication = (a, b) => a * b;
-console.log(multiplication(4, 2)); // 8
-```
-
-**Si l'on enlève les accolades, le `return` est implicite.**
-
----
-
-## Comparaisons en JavaScript
-
-### Deux types de comparaison
-- `==` : égalité **lâche**, convertit les types si nécessaire.
-- `===` : égalité **stricte**, vérifie les types et les valeurs.
-
-```js
-console.log(1 == "1");  // true (conversion de type)
-console.log(1 === "1"); // false (types différents)
-```
-
-**Bonnes pratiques** :
-- Toujours utiliser `===` pour éviter les erreurs de conversion implicite.
-
----
-
-## Conclusion
-JavaScript est un langage puissant et souple. En maîtrisant ses bases (variables, types, fonctions, tableaux, objets), vous pourrez écrire du code efficace et évolutif, que ce soit en front-end (navigateur) ou en back-end avec **Node.js**.
-
-
-## Desctructuration 
-- Extrait de valeurs de tableaux ou objets
-- simplifie l'accès aux données 
-- affection directe à des variables
-
-Exemple : 
-
-```js 
-const Bob = {
-    name: 'Bob',
-    age: 25,
-    adress: {
-        city: 'Paris',
-        country: 'France'
-    }
-};
-
-const Alice = { ...Bob, name: 'Alice' };
-Alice.adress.city = 'Lyon';
-
-console.log(Bob.adress.city);
-console.log(Alice.adress.city);
-```
-
-## Javascript Asynchrone : Pourquoi ?
-# Javascript est mono-thread
-
-- Un seul fil d'exécution
-- Bloquant par défaut reste bloqué à l'appel 1 tant qu'il n'est pas fini : il ne passera pas à l'appel 2
-- Doit rester réactif
-
-# Opérartions qui prennent du temps 
-- Réquête réseau (API, fichiers)
-- Opérations sur disque 
-- Animations complexes 
-- Traitements lourds
-
-# solutions 
-
-- Callback
-- Promesses
-- Async/await
-- Event loop
-
-# Event loop 
-- stack d'exécution
-- File d'événements 
-- boucle d'événements
-- API Navigateur / NodeJs
+#### L'Event Loop
+L'Event Loop permet d'exécuter du code asynchrone sans bloquer l'exécution du programme.
 
 ```mermaid
 graph TD
@@ -248,40 +87,119 @@ graph TD
 
     style A fill:#42b883
     style G fill:#35495e
-
-
 ```
-## Promesses 
-# Concept 
-- Objet représentant une opération asynchrone
-- Etats : pending, fulfilled, rejected
-- Chainable via .then() et .catch()
-- Composition facilité
 
-# Avantages 
-- Flux linéaire
-- Gestion des erreurs simplififiée
+---
+
+## Promesses
+### Concept
+- Objet représentant une opération asynchrone.
+- États : `pending`, `fulfilled`, `rejected`.
+- Chaînage possible via `.then()` et `.catch()`.
+
+### Avantages
+- Flux plus linéaire.
+- Gestion des erreurs simplifiée.
+
+```js
+const maPromesse = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Succès !"), 2000);
+});
+
+maPromesse.then(result => console.log(result)).catch(error => console.error(error));
+```
+
+---
 
 ## Async / Await
-# Concept 
-- Sucre syntaxique pour les promesses
-- Syntaxe qui ressemble à du code asynchrone
-- Basé sur les générateurs et promesses
-- Introduit en ES2017 
+### Concept
+- Sucre syntaxique pour les promesses.
+- Introduit en **ES2017**.
+- Facilite l'écriture de code asynchrone qui ressemble à du code synchrone.
 
-# Points clés 
-- async déclare une fonction asynchrone 
-- fonction async retourne toujours une promesse 
-- await pause l'exécution de la fonction asynchrone
-- Utilisable uniquement dans une fonction async
-- Gestion des erreurs avec try/catch 
+### Points clés
+- `async` déclare une fonction asynchrone.
+- Une fonction `async` retourne toujours une **promesse**.
+- `await` **pause l'exécution** de la fonction jusqu'à la résolution de la promesse.
+- Utilisable uniquement dans une fonction `async`.
+- Gestion des erreurs avec `try/catch`.
+
+```js
+async function fetchData() {
+  try {
+    let response = await fetch("https://api.example.com/data");
+    let data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Erreur :", error);
+  }
+}
+
+fetchData();
+```
+
+---
+
+## Destructuration
+La **destructuration** permet d'extraire des valeurs de tableaux ou d'objets pour les affecter directement à des variables.
+
+```js
+const Bob = {
+    name: 'Bob',
+    age: 25,
+    address: {
+        city: 'Paris',
+        country: 'France'
+    }
+};
+
+const Alice = { ...Bob, name: 'Alice' };
+Alice.address.city = 'Lyon';
+
+console.log(Bob.address.city);  // Lyon (Attention : modification par référence)
+console.log(Alice.address.city); // Lyon
+```
+
+**Bonnes pratiques** : utiliser `JSON.parse(JSON.stringify(obj))` pour cloner un objet sans garder la référence.
+
+---
+
+## Node.js : Composants Clés
+Node.js repose sur plusieurs composants essentiels :
+
+- **V8** : moteur JavaScript de Google Chrome, rapide et optimisé.
+- **libuv** : bibliothèque C++ gérant les entrées/sorties asynchrones.
+- **Modules natifs** : HTTP, FS, etc.
+- **npm** : gestionnaire de paquets de Node.js.
+- **Event Loop** : cœur du fonctionnement asynchrone de Node.js.
+
+---
+
+## Conclusion
+JavaScript est un langage puissant et flexible, essentiel pour le développement web. Avec **Node.js**, il devient possible de développer des applications côté serveur performantes et évolutives. La compréhension de **l'asynchronisme**, des **promesses**, et du **fonctionnement de Node.js** est essentielle pour écrire du code efficace et fluide.
 
 
-## NodeJs
-# composants clés 
-V8: moteur Js Chrome
-libuv : bibliothèque C pour I/O asynchrone
-Modules natifs : HTTP, FS, etc
-npm : gestionnaire de paquets
-Event Loop : coeur de l'asynchrone 
+## Module System de Node.js
 
+- CommonJS (standard)
+- Traditionnel en Node.js
+- require() et module.exports
+- Chargement synchrone
+- Cache des modules
+
+ES Modules 
+- support natif depuis Node.js 12+
+- import et export
+- Extension .mjs
+- Plus moderne
+
+# L'export nommé 
+nom de la variable devant le nom que l'on veut exporter
+1 seul par module 
+
+npm : Node Package Manager
+- gestionnaire de paquets
+- Plus grand registre de logiciels du monde 
+- Outil en ligne de commande 
+- Gestion des dépendances 
+- Automatisation de scripts 

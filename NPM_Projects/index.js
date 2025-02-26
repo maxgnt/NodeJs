@@ -1,12 +1,18 @@
-// Exemple 1: Module global
-console.log("Hello Node.js!");
 
-// Variables globales
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+console.log("Hello Node.js!");
 console.log(__filename); // Chemin complet du fichier
 console.log(__dirname);  // Chemin du répertoire
 
+
 // Exemple 2: Module HTTP (serveur simple)
-const http = require('http');
+import http from 'http';
 
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
@@ -20,7 +26,7 @@ server.listen(3000, '127.0.0.1', () => {
 });
 
 // Exemple 3: Module FS (système de fichiers)
-const fs = require('fs');
+import fs from 'fs';
 
 // Synchrone (bloquant)
 try {
