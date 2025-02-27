@@ -1,0 +1,22 @@
+let test: string = "Hello World";
+ 
+function greet(name: string): string {
+    return `Hello ${name}`;
+}
+ 
+console.log(greet("Hello TypeScript"));
+ 
+ 
+// pnpm tsc src/index.ts
+ 
+ 
+config une commande qui permet d'observer les changements du code au fur et a mesure qu'on développe.
+ 
+// pnpm add -d nodemon ts-node
+ 
+// Ajouter dans le package.json
+// "scripts": {
+// dev: "nodemon --watch \"src/**\" --ext \"ts,json\" --exec \"ts-node src/index.ts\""
+// Pour pouvoir lancer nodemon, car il n'est pas installé globalement, on doit le lancer avec pnpm
+// pnpm run dev dans la console
+ 

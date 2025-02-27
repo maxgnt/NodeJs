@@ -218,3 +218,22 @@ npm : Node Package Manager
 - Méthodes statiques
 - Héritage via extends
 - super pour accéder à la classe parente 
+
+---
+- Routeur : trajet dans le code de l'app qui correspond à une URL spécifique
+- Middleware : fonction qui traite les requêtes HTTP avant qu'elles n'atteignent la route
+- Middleware : request et response et 3eme parametre next 
+- Application : instance Express principale
+- Routing : gestion des requêtes HTTP par URL et méthode
+- Middleware : Fonctions intermédiaires de traitement
+- Handler : fonction finale qui répond à la requête
+
+## Application Express
+```
+app.get('/', (req, res) => {
+    res.send('Hello World');
+}); 
+```
+Une requête HTTP est déjà asynchrone par nature.
+On ne peut pas avoir deux routes de même nom avec Express 
+

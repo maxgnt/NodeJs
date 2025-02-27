@@ -2,17 +2,18 @@ import readlineSync from 'readline-sync';
 
 let cartes = [1, 2, 3, 4, 1, 2, 3, 4];
 let trouvées = [false, false, false, false, false, false, false, false];
-let vies = 5;
+//let vies = 5;
 console.log("Bienvenue dans le Memory ! Trouvez les paires.");
 console.log("Vous avez 5 vies pour trouver toutes les paires.");
 
 
-
+/*
 function affichervies() {
     let(i = 0; i < vies; i++) {
         console.log("Vies restantes : " + vies);
     }
 }
+    */
 
 function afficherCartes() {
     let affichage = "";
