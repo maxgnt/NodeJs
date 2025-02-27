@@ -19,6 +19,11 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('Contact', (req, res) => {
+    res.send('');
+});
+
+
 
 app.get('/users', (req, res) => {
     res.send(`Hello ${req.user.name}`);
